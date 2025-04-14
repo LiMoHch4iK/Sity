@@ -111,7 +111,7 @@ def handle_dialog(res, req):
                     }
                 ]
         elif req['request']["command"].lover() == 'помощь' or req['request']["original_utterance"].lover() == 'помощь':
-                res['response']['text'] = 'Сработал вызов помощи'
+            res['response']['text'] = 'Сработал вызов помощи'
         else:
             play_game(res, req)
 
@@ -133,10 +133,11 @@ def play_game(res, req):
         res['response']['card']['title'] = 'Что это за город?'
         res['response']['card']['image_id'] = cities[city][attempt - 1]
         res['response']['text'] = 'Тогда сыграем!'
-        res['response']['buttons'] = [{
-            'title': 'Помощь',
-            'hide': True
-        }
+        res['response']['buttons'] = [
+            {
+                'title': 'Помощь',
+                'hide': True
+            }
         ]
     else:
         # сюда попадаем, если попытка отгадать не первая
